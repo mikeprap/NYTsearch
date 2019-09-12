@@ -26,16 +26,14 @@ function NYAPICall(title, startYear, endYear) {
 
         for (var i = 0; i < endNumber; i++) {
             var title = results[i].headline.main;
-            var snip = results[i].snippet;
+            
             var details = results[i].lead_paragraph;
             console.log(query)
 
             $("#data-display").append(
                 "<div class='card-header bg-light text-dark'><span> " +
                 (i + 1) +
-                ". </span><span>" + title + "<br>" +
-                snip  +  details  +
-                "</span><p></div>"
+                ". </span><span>" + title + "<br>" + details  + "</span><p></div>"
             );
 
             var multimedia = results[i].multimedia;
