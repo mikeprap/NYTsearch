@@ -22,17 +22,19 @@ function NYAPICall(title, startYear, endYear) {
     }).then(function (response) {
         var results = response.response.docs;
         var endNumber = $("#exampleFormControlSelect1").val();
+        
 
         for (var i = 0; i < endNumber; i++) {
-            var url = results[i].web_url;
-            var titile = results[i].snippet;
+            var title = results[i].headline.main;
+            var snip = results[i].snippet;
             var details = results[i].lead_paragraph;
+            console.log(query)
 
             $("#data-display").append(
                 "<div class='card-header bg-light text-dark'><span> " +
                 (i + 1) +
-                ". </span><span>" +
-                titile +
+                ". </span><span>" + title + "<br>" +
+                snip  +  details  +
                 "</span><p></div>"
             );
 
